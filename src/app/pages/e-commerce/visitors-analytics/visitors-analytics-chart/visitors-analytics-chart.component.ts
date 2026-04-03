@@ -1,3 +1,4 @@
+import * as echarts from 'echarts';
 import { delay, takeWhile } from 'rxjs/operators';
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
@@ -5,6 +6,7 @@ import { LayoutService } from '../../../../@core/utils';
 import { OutlineData } from '../../../../@core/data/visitors-analytics';
 
 @Component({
+  standalone: false,
   selector: 'ngx-visitors-analytics-chart',
   styleUrls: ['./visitors-analytics-chart.component.scss'],
   template: `
