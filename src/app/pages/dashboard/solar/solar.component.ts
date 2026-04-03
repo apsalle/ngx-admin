@@ -1,10 +1,10 @@
+import * as echarts from 'echarts';
 import { delay } from 'rxjs/operators';
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
-declare const echarts: any;
-
 @Component({
+  standalone: false,
   selector: 'ngx-solar',
   styleUrls: ['./solar.component.scss'],
   template: `

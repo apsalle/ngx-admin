@@ -1,9 +1,11 @@
+import * as echarts from 'echarts';
 import { delay, takeWhile } from 'rxjs/operators';
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../@core/utils';
 
 @Component({
+  standalone: false,
   selector: 'ngx-traffic-chart',
   template: `
     <div echarts

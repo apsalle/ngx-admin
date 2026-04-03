@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
+  standalone: false,
   selector: 'ngx-chartjs-multiple-xaxis',
   template: `
     <chart type="line" [data]="data" [options]="options"></chart>
@@ -60,48 +61,46 @@ export class ChartjsMultipleXaxisComponent implements OnDestroy {
       this.options = {
         responsive: true,
         maintainAspectRatio: false,
-        legend: {
-          position: 'bottom',
-          labels: {
-            fontColor: chartjs.textColor,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: chartjs.textColor,
+            },
           },
         },
         hover: {
           mode: 'index',
         },
         scales: {
-          xAxes: [
-            {
+          x: {
+            display: true,
+            title: {
               display: true,
-              scaleLabel: {
-                display: true,
-                labelString: 'Month',
-              },
-              gridLines: {
-                display: true,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
+              text: 'Month',
             },
-          ],
-          yAxes: [
-            {
+            grid: {
               display: true,
-              scaleLabel: {
-                display: true,
-                labelString: 'Value',
-              },
-              gridLines: {
-                display: true,
-                color: chartjs.axisLineColor,
-              },
-              ticks: {
-                fontColor: chartjs.textColor,
-              },
+              color: chartjs.axisLineColor,
             },
-          ],
+            ticks: {
+              color: chartjs.textColor,
+            },
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Value',
+            },
+            grid: {
+              display: true,
+              color: chartjs.axisLineColor,
+            },
+            ticks: {
+              color: chartjs.textColor,
+            },
+          },
         },
       };
     });
