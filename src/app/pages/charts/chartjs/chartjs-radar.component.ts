@@ -10,7 +10,7 @@ import { NbThemeService, NbColorHelper } from '@nebular/theme';
 })
 export class ChartjsRadarComponent implements OnDestroy {
   options: any;
-  data: {};
+  data: object;
   themeSubscription: any;
 
   constructor(private theme: NbThemeService) {

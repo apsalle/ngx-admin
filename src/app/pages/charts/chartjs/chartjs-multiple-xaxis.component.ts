@@ -9,7 +9,7 @@ import { NbThemeService } from '@nebular/theme';
   `,
 })
 export class ChartjsMultipleXaxisComponent implements OnDestroy {
-  data: {};
+  data: object;
   options: any;
   themeSubscription: any;
 
