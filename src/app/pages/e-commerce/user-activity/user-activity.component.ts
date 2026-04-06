@@ -1,14 +1,22 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService, NbCardModule, NbSelectModule, NbOptionModule, NbListModule, NbIconModule } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 
 import { UserActivityData, UserActive } from '../../../@core/data/user-activity';
+import { NgFor } from '@angular/common';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-user-activity',
-  styleUrls: ['./user-activity.component.scss'],
-  templateUrl: './user-activity.component.html',
+    selector: 'ngx-user-activity',
+    styleUrls: ['./user-activity.component.scss'],
+    templateUrl: './user-activity.component.html',
+    imports: [
+        NbCardModule,
+        NbSelectModule,
+        NgFor,
+        NbOptionModule,
+        NbListModule,
+        NbIconModule,
+    ],
 })
 export class ECommerceUserActivityComponent implements OnDestroy {
 

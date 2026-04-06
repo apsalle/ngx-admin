@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { LayoutComponent } from './layout.component';
 import { Tab1Component, Tab2Component, TabsComponent } from './tabs/tabs.component';
@@ -7,10 +6,12 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { InfiniteListComponent } from './infinite-list/infinite-list.component';
 import { ListComponent } from './list/list.component';
 import { StepperComponent } from './stepper/stepper.component';
+import { NewsService } from './news.service';
 
-const routes: Routes = [{
+export const LAYOUT_ROUTES: Routes = [{
   path: '',
   component: LayoutComponent,
+  providers: [NewsService],
   children: [
     {
       path: 'stepper',
@@ -49,10 +50,3 @@ const routes: Routes = [{
     },
   ],
 }];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class LayoutRoutingModule {
-}

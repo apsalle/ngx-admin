@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { MiscellaneousComponent } from './miscellaneous.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-const routes: Routes = [
+export const MISCELLANEOUS_ROUTES: Routes = [
   {
     path: '',
     component: MiscellaneousComponent,
@@ -16,10 +15,3 @@ const routes: Routes = [
     ],
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class MiscellaneousRoutingModule {
-}

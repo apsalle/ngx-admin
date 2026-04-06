@@ -2,12 +2,12 @@ import * as echarts from 'echarts';
 import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { delay, takeWhile } from 'rxjs/operators';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-earning-pie-chart',
-  styleUrls: ['./earning-card-back.component.scss'],
-  template: `
+    selector: 'ngx-earning-pie-chart',
+    styleUrls: ['./earning-card-back.component.scss'],
+    template: `
     <div echarts
          class="echart"
          [options]="options"
@@ -15,6 +15,7 @@ import { delay, takeWhile } from 'rxjs/operators';
          (chartClick)="onChartClick($event)">
     </div>
   `,
+    imports: [NgxEchartsDirective],
 })
 export class EarningPieChartComponent implements AfterViewInit, OnDestroy {
 

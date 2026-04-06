@@ -1,12 +1,13 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-echarts-multiple-xaxis',
-  template: `
+    selector: 'ngx-echarts-multiple-xaxis',
+    template: `
     <div echarts [options]="options" class="echart"></div>
   `,
+    imports: [NgxEchartsDirective],
 })
 export class EchartsMultipleXaxisComponent implements AfterViewInit, OnDestroy {
   options: any = {};

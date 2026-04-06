@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { NbCardModule } from '@nebular/theme';
+import { NgClass } from '@angular/common';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-status-card',
-  styleUrls: ['./status-card.component.scss'],
-  template: `
+    selector: 'ngx-status-card',
+    styleUrls: ['./status-card.component.scss'],
+    template: `
     <nb-card (click)="on = !on" [ngClass]="{'off': !on}">
       <div class="icon-container">
         <div class="icon status-{{ type }}">
@@ -18,6 +19,7 @@ import { Component, Input } from '@angular/core';
       </div>
     </nb-card>
   `,
+    imports: [NbCardModule, NgClass],
 })
 export class StatusCardComponent {
 

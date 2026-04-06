@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { NbCardModule, NbTabsetModule, NbSpinnerModule } from '@nebular/theme';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-spinner-in-tabs',
-  templateUrl: 'spinner-in-tabs.component.html',
-  styleUrls: ['spinner-in-tabs.component.scss'],
+    selector: 'ngx-spinner-in-tabs',
+    templateUrl: 'spinner-in-tabs.component.html',
+    styleUrls: ['spinner-in-tabs.component.scss'],
+    imports: [
+        NbCardModule,
+        NbTabsetModule,
+        NbSpinnerModule,
+    ],
 })
 
 export class SpinnerInTabsComponent {

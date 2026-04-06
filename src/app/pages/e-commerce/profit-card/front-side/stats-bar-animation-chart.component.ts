@@ -2,17 +2,18 @@ import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { LayoutService } from '../../../../@core/utils/layout.service';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-stats-bar-animation-chart',
-  template: `
+    selector: 'ngx-stats-bar-animation-chart',
+    template: `
     <div echarts
          [options]="options"
          class="echart"
          (chartInit)="onChartInit($event)">
     </div>
   `,
+    imports: [NgxEchartsDirective],
 })
 export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy {
 

@@ -3,9 +3,8 @@ import { Component, Input } from '@angular/core';
 import { NewsPost } from '../../news.service';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-news-post',
-  templateUrl: 'news-post.component.html',
+    selector: 'ngx-news-post',
+    templateUrl: 'news-post.component.html',
 })
 export class NewsPostComponent {
 

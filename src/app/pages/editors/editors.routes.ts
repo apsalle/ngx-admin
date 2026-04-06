@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { EditorsComponent } from './editors.component';
 import { TinyMCEComponent } from './tiny-mce/tiny-mce.component';
 import { CKEditorComponent } from './ckeditor/ckeditor.component';
 
-const routes: Routes = [{
+export const EDITORS_ROUTES: Routes = [{
   path: '',
   component: EditorsComponent,
   children: [{
@@ -16,15 +15,3 @@ const routes: Routes = [{
     component: CKEditorComponent,
   }],
 }];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class EditorsRoutingModule { }
-
-export const routedComponents = [
-  EditorsComponent,
-  TinyMCEComponent,
-  CKEditorComponent,
-];

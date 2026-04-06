@@ -2,19 +2,20 @@ import { Component, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { combineLatest } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService, NbCardModule } from '@nebular/theme';
 import { registerMap } from 'echarts';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-bubble-map',
-  styleUrls: ['./bubble-map.component.scss'],
-  template: `
+    selector: 'ngx-bubble-map',
+    styleUrls: ['./bubble-map.component.scss'],
+    template: `
     <nb-card>
       <nb-card-header>Bubble Maps</nb-card-header>
       <div echarts [options]="options" class="echarts"></div>
     </nb-card>
   `,
+    imports: [NbCardModule, NgxEchartsDirective],
 })
 export class BubbleMapComponent implements OnDestroy {
 

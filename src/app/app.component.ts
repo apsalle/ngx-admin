@@ -6,11 +6,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { SeoService } from './@core/utils/seo.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-app',
-  template: '<router-outlet></router-outlet>',
+    selector: 'ngx-app',
+    template: '<router-outlet></router-outlet>',
+    imports: [RouterOutlet],
 })
 export class AppComponent implements OnInit {
 

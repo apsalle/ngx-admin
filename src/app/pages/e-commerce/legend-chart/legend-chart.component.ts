@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 import { NgxLegendItemColor } from './enum.legend-item-color';
+import { NgFor } from '@angular/common';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-legend-chart',
-  styleUrls: ['./legend-chart.component.scss'],
-  templateUrl: './legend-chart.component.html',
+    selector: 'ngx-legend-chart',
+    styleUrls: ['./legend-chart.component.scss'],
+    templateUrl: './legend-chart.component.html',
+    imports: [NgFor],
 })
 export class ECommerceLegendChartComponent {
 
