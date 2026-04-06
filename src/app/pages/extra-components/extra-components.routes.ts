@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { ExtraComponentsComponent } from './extra-components.component';
 import { AlertComponent } from './alert/alert.component';
@@ -9,7 +8,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { ChatComponent } from './chat/chat.component';
 import { CalendarKitFullCalendarShowcaseComponent } from './calendar-kit/calendar-kit.component';
 
-const routes: Routes = [{
+export const EXTRA_COMPONENTS_ROUTES: Routes = [{
   path: '',
   component: ExtraComponentsComponent,
   children: [
@@ -39,10 +38,3 @@ const routes: Routes = [{
     },
   ],
 }];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class ExtraComponentsRoutingModule {
-}
