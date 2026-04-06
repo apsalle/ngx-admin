@@ -1,13 +1,13 @@
 import * as echarts from 'echarts';
 import { delay } from 'rxjs/operators';
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService, NbCardModule } from '@nebular/theme';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-solar',
-  styleUrls: ['./solar.component.scss'],
-  template: `
+    selector: 'ngx-solar',
+    styleUrls: ['./solar.component.scss'],
+    template: `
     <nb-card size="tiny" class="solar-card">
       <nb-card-header>Solar Energy Consumption</nb-card-header>
       <nb-card-body>
@@ -20,6 +20,7 @@ import { NbThemeService } from '@nebular/theme';
       </nb-card-body>
     </nb-card>
   `,
+    imports: [NbCardModule, NgxEchartsDirective],
 })
 export class SolarComponent implements AfterViewInit, OnDestroy {
 

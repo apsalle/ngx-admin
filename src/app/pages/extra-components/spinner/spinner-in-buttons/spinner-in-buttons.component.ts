@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { NbCardModule, NbButtonModule, NbSpinnerModule } from '@nebular/theme';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-spinner-in-buttons',
-  templateUrl: 'spinner-in-buttons.component.html',
-  styleUrls: ['spinner-in-buttons.component.scss'],
+    selector: 'ngx-spinner-in-buttons',
+    templateUrl: 'spinner-in-buttons.component.html',
+    styleUrls: ['spinner-in-buttons.component.scss'],
+    imports: [
+        NbCardModule,
+        NbButtonModule,
+        NbSpinnerModule,
+    ],
 })
 
 export class SpinnerInButtonsComponent {

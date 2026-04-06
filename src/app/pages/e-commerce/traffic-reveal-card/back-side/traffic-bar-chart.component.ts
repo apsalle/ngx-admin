@@ -3,17 +3,18 @@ import { AfterViewInit, Component, Input, OnChanges, OnDestroy, SimpleChanges } 
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { LayoutService } from '../../../../@core/utils/layout.service';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-traffic-bar-chart',
-  template: `
+    selector: 'ngx-traffic-bar-chart',
+    template: `
     <div echarts
          [options]="option"
          class="echart"
          (chartInit)="onChartInit($event)">
     </div>
   `,
+    imports: [NgxEchartsDirective],
 })
 export class TrafficBarChartComponent implements AfterViewInit, OnDestroy, OnChanges {
 

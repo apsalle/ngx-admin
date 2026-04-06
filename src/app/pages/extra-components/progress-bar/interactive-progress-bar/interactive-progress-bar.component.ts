@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { NbCardModule, NbButtonModule, NbIconModule, NbProgressBarModule } from '@nebular/theme';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-interactive-progress-bar',
-  templateUrl: 'interactive-progress-bar.component.html',
-  styleUrls: ['interactive-progress-bar.component.scss'],
+    selector: 'ngx-interactive-progress-bar',
+    templateUrl: 'interactive-progress-bar.component.html',
+    styleUrls: ['interactive-progress-bar.component.scss'],
+    imports: [
+        NbCardModule,
+        NbButtonModule,
+        NbIconModule,
+        NbProgressBarModule,
+    ],
 })
 export class InteractiveProgressBarComponent {
 

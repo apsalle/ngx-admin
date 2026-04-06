@@ -1,11 +1,11 @@
 import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService } from '@nebular/theme';
+import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService, NbCardModule, NbAlertModule } from '@nebular/theme';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-typography',
-  styleUrls: ['./typography.component.scss'],
-  templateUrl: './typography.component.html',
+    selector: 'ngx-typography',
+    styleUrls: ['./typography.component.scss'],
+    templateUrl: './typography.component.html',
+    imports: [NbCardModule, NbAlertModule],
 })
 export class TypographyComponent implements OnDestroy {
   breakpoint: NbMediaBreakpoint;

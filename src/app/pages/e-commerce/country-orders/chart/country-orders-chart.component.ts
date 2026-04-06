@@ -3,13 +3,13 @@ import { Component, Input, OnChanges, OnDestroy, SimpleChanges } from '@angular/
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 import { LayoutService } from '../../../../@core/utils/layout.service';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 
 @Component({
-  standalone: false,
-  selector: 'ngx-country-orders-chart',
-  styleUrls: ['./country-orders-chart.component.scss'],
-  template: `
+    selector: 'ngx-country-orders-chart',
+    styleUrls: ['./country-orders-chart.component.scss'],
+    template: `
     <div class="header">
       <span class="caption">Selected Country/Region</span>
       <h2 class="h4">{{ countryName }}</h2>
@@ -20,6 +20,7 @@ import { LayoutService } from '../../../../@core/utils/layout.service';
          (chartInit)="onChartInit($event)">
     </div>
   `,
+    imports: [NgxEchartsDirective],
 })
 export class CountryOrdersChartComponent implements OnDestroy, OnChanges {
 

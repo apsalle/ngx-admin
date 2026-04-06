@@ -13,11 +13,10 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 @Component({
-  standalone: false,
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'chart',
-  template: '<canvas #chartCanvas></canvas>',
-  styles: [':host { display: block; }'],
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'chart',
+    template: '<canvas #chartCanvas></canvas>',
+    styles: [':host { display: block; }'],
 })
 export class ChartWrapperComponent implements AfterViewInit, OnDestroy, OnChanges {
   @Input() type: string;

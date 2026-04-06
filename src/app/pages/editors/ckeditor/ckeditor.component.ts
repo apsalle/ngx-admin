@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
 import './ckeditor.loader';
+import { NbCardModule } from '@nebular/theme';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-ckeditor',
-  template: `
+    selector: 'ngx-ckeditor',
+    template: `
     <nb-card>
       <nb-card-header>
         CKEditor
@@ -15,6 +16,7 @@ import './ckeditor.loader';
       </nb-card-body>
     </nb-card>
   `,
+    imports: [NbCardModule, CKEditorModule],
 })
 export class CKEditorComponent {
 }

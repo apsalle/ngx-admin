@@ -36,7 +36,6 @@
     "@angular/forms": "^19.2.0",
     "@angular/google-maps": "^19.2.0",
     "@angular/platform-browser": "^19.2.0",
-    "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@asymmetrik/ngx-leaflet": "18.0.1",
     "@nebular/auth": "15.0.0",

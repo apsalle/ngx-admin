@@ -1,12 +1,13 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-echarts-line',
-  template: `
+    selector: 'ngx-echarts-line',
+    template: `
     <div echarts [options]="options" class="echart"></div>
   `,
+    imports: [NgxEchartsDirective],
 })
 export class EchartsLineComponent implements AfterViewInit, OnDestroy {
   options: any = {};

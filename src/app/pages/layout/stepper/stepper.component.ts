@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NbCardModule, NbStepperModule, NbButtonModule } from '@nebular/theme';
+import { NgClass } from '@angular/common';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-stepper',
-  templateUrl: 'stepper.component.html',
-  styleUrls: ['stepper.component.scss'],
+    selector: 'ngx-stepper',
+    templateUrl: 'stepper.component.html',
+    styleUrls: ['stepper.component.scss'],
+    imports: [
+        NbCardModule,
+        NbStepperModule,
+        NbButtonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgClass,
+    ],
 })
 export class StepperComponent implements OnInit {
 

@@ -1,10 +1,7 @@
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
-import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
   AnalyticsService,
   LayoutService,
@@ -51,7 +48,7 @@ import { CountryOrderService } from './mock/country-order.service';
 import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
-import { MockDataModule } from './mock/mock-data.module';
+import { MOCK_DATA_PROVIDERS } from './mock/mock-data.module';
 
 const socialLinks = [
   {
@@ -101,7 +98,7 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 }
 
 export const NB_CORE_PROVIDERS = [
-  ...MockDataModule.forRoot().providers,
+  ...MOCK_DATA_PROVIDERS,
   ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
 
@@ -144,27 +141,3 @@ export const NB_CORE_PROVIDERS = [
   SeoService,
   StateService,
 ];
-
-@NgModule({
-  imports: [
-    CommonModule,
-  ],
-  exports: [
-    NbAuthModule,
-  ],
-  declarations: [],
-})
-export class CoreModule {
-  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
-    throwIfAlreadyLoaded(parentModule, 'CoreModule');
-  }
-
-  static forRoot(): ModuleWithProviders<CoreModule> {
-    return {
-      ngModule: CoreModule,
-      providers: [
-        ...NB_CORE_PROVIDERS,
-      ],
-    };
-  }
-}
