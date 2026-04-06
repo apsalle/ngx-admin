@@ -1,5 +1,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
+//
+// TODO: Consider migrating from Karma to Jest or Web Test Runner.
+// Karma is deprecated and no longer actively maintained.
 
 module.exports = function (config) {
   const configuration = {
