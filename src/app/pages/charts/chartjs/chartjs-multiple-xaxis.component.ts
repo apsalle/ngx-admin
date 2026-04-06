@@ -1,12 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { ChartWrapperComponent } from '../../../@theme/components/chartjs/chartjs.component';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-chartjs-multiple-xaxis',
-  template: `
+    selector: 'ngx-chartjs-multiple-xaxis',
+    template: `
     <chart type="line" [data]="data" [options]="options"></chart>
   `,
+    imports: [ChartWrapperComponent],
 })
 export class ChartjsMultipleXaxisComponent implements OnDestroy {
   data: {};

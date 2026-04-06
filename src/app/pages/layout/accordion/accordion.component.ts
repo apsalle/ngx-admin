@@ -1,10 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
+import { NbCardModule, NbButtonModule, NbAccordionModule } from '@nebular/theme';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-accordion',
-  templateUrl: 'accordion.component.html',
-  styleUrls: ['accordion.component.scss'],
+    selector: 'ngx-accordion',
+    templateUrl: 'accordion.component.html',
+    styleUrls: ['accordion.component.scss'],
+    imports: [
+        NbCardModule,
+        NbButtonModule,
+        NbAccordionModule,
+    ],
 })
 export class AccordionComponent {
 

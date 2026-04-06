@@ -3,12 +3,20 @@ import {
   NgxPopoverCardComponent, NgxPopoverFormComponent,
   NgxPopoverTabsComponent,
 } from './popover-examples.component';
+import { NbCardModule, NbButtonModule, NbPopoverModule, NbTabsetModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-popovers',
-  styleUrls: ['./popovers.component.scss'],
-  templateUrl: './popovers.component.html',
+    selector: 'ngx-popovers',
+    styleUrls: ['./popovers.component.scss'],
+    templateUrl: './popovers.component.html',
+    imports: [
+        NbCardModule,
+        NbButtonModule,
+        NbPopoverModule,
+        NbTabsetModule,
+        FormsModule,
+    ],
 })
 export class PopoversComponent {
   tabsComponent = NgxPopoverTabsComponent;

@@ -2,9 +2,8 @@ import { Component, OnDestroy, AfterViewInit, Output, EventEmitter, ElementRef }
 import { LocationStrategy } from '@angular/common';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-tiny-mce',
-  template: '',
+    selector: 'ngx-tiny-mce',
+    template: '',
 })
 export class TinyMCEComponent implements OnDestroy, AfterViewInit {
 

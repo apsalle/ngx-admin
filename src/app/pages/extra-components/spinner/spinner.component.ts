@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import { SpinnerSizesComponent } from './spinner-sizes/spinner-sizes.component';
+import { SpinnerColorComponent } from './spinner-color/spinner-color.component';
+import { SpinnerInButtonsComponent } from './spinner-in-buttons/spinner-in-buttons.component';
+import { SpinnerInTabsComponent } from './spinner-in-tabs/spinner-in-tabs.component';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-spinner',
-  templateUrl: 'spinner.component.html',
-  styleUrls: ['spinner.component.scss'],
+    selector: 'ngx-spinner',
+    templateUrl: 'spinner.component.html',
+    styleUrls: ['spinner.component.scss'],
+    imports: [
+        SpinnerSizesComponent,
+        SpinnerColorComponent,
+        SpinnerInButtonsComponent,
+        SpinnerInTabsComponent,
+    ],
 })
 
 export class SpinnerComponent {

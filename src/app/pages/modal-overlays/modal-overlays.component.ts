@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-modal-overlays',
-  template: `
+    selector: 'ngx-modal-overlays',
+    template: `
     <router-outlet></router-outlet>
   `,
+    imports: [RouterOutlet],
 })
 
 export class ModalOverlaysComponent {

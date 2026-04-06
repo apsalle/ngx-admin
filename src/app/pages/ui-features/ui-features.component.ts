@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-ui-features',
-  template: `
+    selector: 'ngx-ui-features',
+    template: `
     <router-outlet></router-outlet>
   `,
+    imports: [RouterOutlet],
 })
 export class UiFeaturesComponent {
 }

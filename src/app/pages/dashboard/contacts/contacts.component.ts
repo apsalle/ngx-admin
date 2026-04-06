@@ -3,12 +3,22 @@ import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
 import { Contacts, RecentUsers, UserData } from '../../../@core/data/users';
+import { NbCardModule, NbTabsetModule, NbListModule, NbUserModule, NbIconModule } from '@nebular/theme';
+import { NgFor, DatePipe } from '@angular/common';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-contacts',
-  styleUrls: ['./contacts.component.scss'],
-  templateUrl: './contacts.component.html',
+    selector: 'ngx-contacts',
+    styleUrls: ['./contacts.component.scss'],
+    templateUrl: './contacts.component.html',
+    imports: [
+        NbCardModule,
+        NbTabsetModule,
+        NbListModule,
+        NgFor,
+        NbUserModule,
+        NbIconModule,
+        DatePipe,
+    ],
 })
 export class ContactsComponent implements OnDestroy {
 

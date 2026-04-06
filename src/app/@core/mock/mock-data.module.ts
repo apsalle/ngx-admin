@@ -1,6 +1,3 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { UserService } from './users.service';
 import { ElectricityService } from './electricity.service';
 import { SmartTableService } from './smart-table.service';
@@ -22,7 +19,7 @@ import { StatsProgressBarService } from './stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './visitors-analytics.service';
 import { SecurityCamerasService } from './security-cameras.service';
 
-const SERVICES = [
+export const MOCK_DATA_PROVIDERS = [
   UserService,
   ElectricityService,
   SmartTableService,
@@ -44,22 +41,3 @@ const SERVICES = [
   VisitorsAnalyticsService,
   SecurityCamerasService,
 ];
-
-@NgModule({
-  imports: [
-    CommonModule,
-  ],
-  providers: [
-    ...SERVICES,
-  ],
-})
-export class MockDataModule {
-  static forRoot(): ModuleWithProviders<MockDataModule> {
-    return {
-      ngModule: MockDataModule,
-      providers: [
-        ...SERVICES,
-      ],
-    };
-  }
-}

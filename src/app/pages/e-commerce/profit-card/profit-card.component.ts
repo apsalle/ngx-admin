@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
+import { NbCardModule, NbIconModule } from '@nebular/theme';
+import { StatsCardFrontComponent } from './front-side/stats-card-front.component';
+import { StatsCardBackComponent } from './back-side/stats-card-back.component';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-profit-card',
-  styleUrls: ['./profit-card.component.scss'],
-  templateUrl: './profit-card.component.html',
+    selector: 'ngx-profit-card',
+    styleUrls: ['./profit-card.component.scss'],
+    templateUrl: './profit-card.component.html',
+    imports: [
+        NbCardModule,
+        StatsCardFrontComponent,
+        NbIconModule,
+        StatsCardBackComponent,
+    ],
 })
 export class ProfitCardComponent {
 

@@ -1,12 +1,20 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ProgressInfo, StatsProgressBarData } from '../../../@core/data/stats-progress-bar';
 import { takeWhile } from 'rxjs/operators';
+import { NbCardModule, NbProgressBarModule } from '@nebular/theme';
+import { NgFor } from '@angular/common';
+import { NumberWithCommasPipe } from '../../../@theme/pipes/number-with-commas.pipe';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-progress-section',
-  styleUrls: ['./progress-section.component.scss'],
-  templateUrl: './progress-section.component.html',
+    selector: 'ngx-progress-section',
+    styleUrls: ['./progress-section.component.scss'],
+    templateUrl: './progress-section.component.html',
+    imports: [
+        NbCardModule,
+        NgFor,
+        NbProgressBarModule,
+        NumberWithCommasPipe,
+    ],
 })
 export class ECommerceProgressSectionComponent implements OnDestroy {
 
@@ -23,6 +31,6 @@ export class ECommerceProgressSectionComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.alive = true;
+    this.alive = false;
   }
 }
