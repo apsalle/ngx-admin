@@ -31,6 +31,6 @@ export class ECommerceProgressSectionComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.alive = true;
+    this.alive = false;
   }
 }
