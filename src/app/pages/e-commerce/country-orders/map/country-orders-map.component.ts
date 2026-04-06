@@ -16,6 +16,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     <div leaflet [leafletOptions]="options" [leafletLayers]="layers" (leafletMapReady)="mapReady($event)"></div>
   `,
     imports: [LeafletModule],
+    providers: [CountryOrdersMapService],
 })
 export class CountryOrdersMapComponent implements OnDestroy {
 
