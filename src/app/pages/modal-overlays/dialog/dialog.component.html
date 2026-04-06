@@ -51,7 +51,7 @@
         <br>
           <h3 class="title">Names:</h3>
           <ul>
-            @for (name of names; track name) {
+            @for (name of names; track $index) {
               <li>{{ name }}</li>
             }
           </ul>

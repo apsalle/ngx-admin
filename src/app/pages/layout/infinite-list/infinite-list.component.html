@@ -11,7 +11,7 @@
             <ngx-news-post [post]="newsPost"></ngx-news-post>
           </nb-list-item>
         }
-        @for (_ of firstCard.placeholders; track _) {
+        @for (_ of firstCard.placeholders; track $index) {
           <nb-list-item>
             <ngx-news-post-placeholder></ngx-news-post-placeholder>
           </nb-list-item>
@@ -33,7 +33,7 @@
             <ngx-news-post [post]="newsPost"></ngx-news-post>
           </nb-list-item>
         }
-        @for (_ of secondCard.placeholders; track _) {
+        @for (_ of secondCard.placeholders; track $index) {
           <nb-list-item>
             <ngx-news-post-placeholder></ngx-news-post-placeholder>
           </nb-list-item>
