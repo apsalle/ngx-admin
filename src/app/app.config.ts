@@ -13,8 +13,11 @@ import {
   NbChatModule,
   NbThemeModule,
 } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import { NbSecurityModule } from '@nebular/security';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { NB_CORE_PROVIDERS } from './@core/core.module';
+import { NB_CORE_PROVIDERS, socialLinks } from './@core/core.module';
 import { DEFAULT_THEME } from './@theme/styles/theme.default';
 import { COSMIC_THEME } from './@theme/styles/theme.cosmic';
 import { CORPORATE_THEME } from './@theme/styles/theme.corporate';
@@ -36,6 +39,36 @@ export const appConfig: ApplicationConfig = {
         messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
       }),
       NgxEchartsModule.forRoot({ echarts: () => import('echarts') }),
+      NbEvaIconsModule,
+      NbAuthModule.forRoot({
+        strategies: [
+          NbDummyAuthStrategy.setup({
+            name: 'email',
+            delay: 3000,
+          }),
+        ],
+        forms: {
+          login: {
+            socialLinks: socialLinks,
+          },
+          register: {
+            socialLinks: socialLinks,
+          },
+        },
+      }),
+      NbSecurityModule.forRoot({
+        accessControl: {
+          guest: {
+            view: '*',
+          },
+          user: {
+            parent: 'guest',
+            create: '*',
+            edit: '*',
+            remove: '*',
+          },
+        },
+      }),
     ),
     ...NB_CORE_PROVIDERS,
     ...NbThemeModule.forRoot(

@@ -1,5 +1,4 @@
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
-import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
+import { NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
 import {
@@ -50,7 +49,7 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MOCK_DATA_PROVIDERS } from './mock/mock-data.module';
 
-const socialLinks = [
+export const socialLinks = [
   {
     url: 'https://github.com/akveo/nebular',
     target: '_blank',
@@ -100,38 +99,6 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 export const NB_CORE_PROVIDERS = [
   ...MOCK_DATA_PROVIDERS,
   ...DATA_SERVICES,
-  ...NbAuthModule.forRoot({
-
-    strategies: [
-      NbDummyAuthStrategy.setup({
-        name: 'email',
-        delay: 3000,
-      }),
-    ],
-    forms: {
-      login: {
-        socialLinks: socialLinks,
-      },
-      register: {
-        socialLinks: socialLinks,
-      },
-    },
-  }).providers,
-
-  NbSecurityModule.forRoot({
-    accessControl: {
-      guest: {
-        view: '*',
-      },
-      user: {
-        parent: 'guest',
-        create: '*',
-        edit: '*',
-        remove: '*',
-      },
-    },
-  }).providers,
-
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
