@@ -6,12 +6,22 @@ import { ProfitChartComponent } from './charts/profit-chart.component';
 import { OrdersChart } from '../../../@core/data/orders-chart';
 import { ProfitChart } from '../../../@core/data/profit-chart';
 import { OrderProfitChartSummary, OrdersProfitChartData } from '../../../@core/data/orders-profit-chart';
+import { NbCardModule, NbTabsetModule } from '@nebular/theme';
+import { ChartPanelSummaryComponent } from './chart-panel-summary/chart-panel-summary.component';
+import { ChartPanelHeaderComponent } from './chart-panel-header/chart-panel-header.component';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-ecommerce-charts',
-  styleUrls: ['./charts-panel.component.scss'],
-  templateUrl: './charts-panel.component.html',
+    selector: 'ngx-ecommerce-charts',
+    styleUrls: ['./charts-panel.component.scss'],
+    templateUrl: './charts-panel.component.html',
+    imports: [
+        NbCardModule,
+        NbTabsetModule,
+        ChartPanelSummaryComponent,
+        ChartPanelHeaderComponent,
+        OrdersChartComponent,
+        ProfitChartComponent,
+    ],
 })
 export class ECommerceChartsPanelComponent implements OnDestroy {
 

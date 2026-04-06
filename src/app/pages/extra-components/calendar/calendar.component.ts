@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { NbCalendarRange, NbDateService } from '@nebular/theme';
+import { NbCalendarRange, NbDateService, NbCalendarModule, NbCalendarRangeModule } from '@nebular/theme';
 import { DayCellComponent } from './day-cell/day-cell.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
-  standalone: false,
     selector: 'ngx-calendar',
     templateUrl: 'calendar.component.html',
     styleUrls: ['calendar.component.scss'],
+    imports: [
+        NbCalendarModule,
+        NbCalendarRangeModule,
+        DatePipe,
+    ],
 })
 export class CalendarComponent {
 

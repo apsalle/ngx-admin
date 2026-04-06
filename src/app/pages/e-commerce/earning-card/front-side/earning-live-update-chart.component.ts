@@ -3,17 +3,18 @@ import { delay, takeWhile } from 'rxjs/operators';
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../../@core/utils/layout.service';
+import { NgxEchartsDirective } from 'ngx-echarts';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-earning-live-update-chart',
-  styleUrls: ['earning-card-front.component.scss'],
-  template: `
+    selector: 'ngx-earning-live-update-chart',
+    styleUrls: ['earning-card-front.component.scss'],
+    template: `
     <div echarts
          class="echart"
          [options]="option"
          (chartInit)="onChartInit($event)"></div>
   `,
+    imports: [NgxEchartsDirective],
 })
 export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy, OnChanges {
   private alive = true;

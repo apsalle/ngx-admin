@@ -1,14 +1,25 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { NbThemeService, NbCardModule, NbSelectModule, NbOptionModule, NbIconModule } from '@nebular/theme';
 import { interval , Subscription } from 'rxjs';
 import { switchMap, takeWhile } from 'rxjs/operators';
 import { LiveUpdateChart, EarningData } from '../../../../@core/data/earning';
+import { NgFor } from '@angular/common';
+import { EarningLiveUpdateChartComponent } from './earning-live-update-chart.component';
+import { NumberWithCommasPipe } from '../../../../@theme/pipes/number-with-commas.pipe';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-earning-card-front',
-  styleUrls: ['./earning-card-front.component.scss'],
-  templateUrl: './earning-card-front.component.html',
+    selector: 'ngx-earning-card-front',
+    styleUrls: ['./earning-card-front.component.scss'],
+    templateUrl: './earning-card-front.component.html',
+    imports: [
+        NbCardModule,
+        NbSelectModule,
+        NgFor,
+        NbOptionModule,
+        NbIconModule,
+        EarningLiveUpdateChartComponent,
+        NumberWithCommasPipe,
+    ],
 })
 export class EarningCardFrontComponent implements OnDestroy, OnInit {
   private alive = true;

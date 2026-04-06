@@ -3,13 +3,15 @@ import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { delay, takeWhile } from 'rxjs/operators';
 import { LayoutService } from '../../../../@core/utils/layout.service';
+import { NgxEchartsDirective } from 'ngx-echarts';
+import { ECommerceLegendChartComponent } from '../../legend-chart/legend-chart.component';
 
 
 @Component({
-  standalone: false,
-  selector: 'ngx-visitors-statistics',
-  styleUrls: ['./visitors-statistics.component.scss'],
-  templateUrl: './visitors-statistics.component.html',
+    selector: 'ngx-visitors-statistics',
+    styleUrls: ['./visitors-statistics.component.scss'],
+    templateUrl: './visitors-statistics.component.html',
+    imports: [NgxEchartsDirective, ECommerceLegendChartComponent],
 })
 export class ECommerceVisitorsStatisticsComponent implements AfterViewInit, OnDestroy {
 

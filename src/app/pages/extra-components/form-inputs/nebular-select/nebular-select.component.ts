@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { NbCardModule, NbSelectModule, NbOptionModule } from '@nebular/theme';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-nebular-select',
-  templateUrl: 'nebular-select.component.html',
-  styleUrls: ['nebular-select.component.scss'],
+    selector: 'ngx-nebular-select',
+    templateUrl: 'nebular-select.component.html',
+    styleUrls: ['nebular-select.component.scss'],
+    imports: [
+        NbCardModule,
+        NbSelectModule,
+        NbOptionModule,
+    ],
 })
 export class NebularSelectComponent {
 

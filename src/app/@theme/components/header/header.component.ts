@@ -1,16 +1,28 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService, NbIconModule, NbSelectModule, NbOptionModule, NbActionsModule, NbSearchModule, NbUserModule, NbContextMenuModule } from '@nebular/theme';
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { NgFor } from '@angular/common';
+import { NbSecurityModule } from '@nebular/security';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-header',
-  styleUrls: ['./header.component.scss'],
-  templateUrl: './header.component.html',
+    selector: 'ngx-header',
+    styleUrls: ['./header.component.scss'],
+    templateUrl: './header.component.html',
+    imports: [
+        NbIconModule,
+        NbSelectModule,
+        NgFor,
+        NbOptionModule,
+        NbActionsModule,
+        NbSearchModule,
+        NbSecurityModule,
+        NbUserModule,
+        NbContextMenuModule,
+    ],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 

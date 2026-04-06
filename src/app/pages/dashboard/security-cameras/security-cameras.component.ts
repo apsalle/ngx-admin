@@ -1,15 +1,23 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { NbComponentSize, NbMediaBreakpointsService, NbThemeService } from '@nebular/theme';
+import { NbComponentSize, NbMediaBreakpointsService, NbThemeService, NbCardModule, NbButtonModule, NbIconModule, NbActionsModule } from '@nebular/theme';
 
 import { Camera, SecurityCamerasData } from '../../../@core/data/security-cameras';
+import { NgIf, NgFor } from '@angular/common';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-security-cameras',
-  styleUrls: ['./security-cameras.component.scss'],
-  templateUrl: './security-cameras.component.html',
+    selector: 'ngx-security-cameras',
+    styleUrls: ['./security-cameras.component.scss'],
+    templateUrl: './security-cameras.component.html',
+    imports: [
+        NbCardModule,
+        NbButtonModule,
+        NbIconModule,
+        NgIf,
+        NgFor,
+        NbActionsModule,
+    ],
 })
 export class SecurityCamerasComponent implements OnInit, OnDestroy {
 

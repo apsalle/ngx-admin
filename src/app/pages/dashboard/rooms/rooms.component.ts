@@ -1,12 +1,13 @@
 import { Component, HostBinding, OnDestroy } from '@angular/core';
-import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService } from '@nebular/theme';
+import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService, NbCardModule, NbIconModule } from '@nebular/theme';
 import { map } from 'rxjs/operators';
+import { RoomSelectorComponent } from './room-selector/room-selector.component';
+import { PlayerComponent } from './player/player.component';
 
 @Component({
-  standalone: false,
-  selector: 'ngx-rooms',
-  styleUrls: ['./rooms.component.scss'],
-  template: `
+    selector: 'ngx-rooms',
+    styleUrls: ['./rooms.component.scss'],
+    template: `
     <nb-card [size]="breakpoint.width >= breakpoints.sm ? 'giant' : ''">
       <nb-icon icon="arrow-ios-downward" pack="eva"
                (click)="collapse()"
@@ -17,6 +18,12 @@ import { map } from 'rxjs/operators';
       <ngx-player [collapsed]="isCollapsed() && breakpoint.width <= breakpoints.md"></ngx-player>
     </nb-card>
   `,
+    imports: [
+        NbCardModule,
+        NbIconModule,
+        RoomSelectorComponent,
+        PlayerComponent,
+    ],
 })
 export class RoomsComponent implements OnDestroy {
 
