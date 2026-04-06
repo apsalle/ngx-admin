@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { takeWhile } from 'rxjs/operators';
 import { NbThemeService } from '@nebular/theme';
 import { OutlineData, VisitorsAnalyticsData } from '../../../@core/data/visitors-analytics';
@@ -18,8 +18,11 @@ export class ECommerceVisitorsAnalyticsComponent implements OnDestroy {
   chartLegend: {iconColor: string; title: string}[];
   visitorsAnalyticsData: { innerLine: number[]; outerLine: OutlineData[]; };
 
-  constructor(private themeService: NbThemeService,
-              private visitorsAnalyticsChartService: VisitorsAnalyticsData) {
+  private themeService = inject(NbThemeService);
+  private visitorsAnalyticsChartService = inject(VisitorsAnalyticsData);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {

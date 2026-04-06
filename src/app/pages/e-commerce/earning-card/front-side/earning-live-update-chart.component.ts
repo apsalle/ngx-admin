@@ -1,6 +1,6 @@
 import * as echarts from 'echarts';
 import { delay, takeWhile } from 'rxjs/operators';
-import { AfterViewInit, Component, Input, OnChanges, OnDestroy } from '@angular/core';
+import {AfterViewInit, Component, Input, OnChanges, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { LayoutService } from '../../../../@core/utils/layout.service';
 
@@ -23,8 +23,11 @@ export class EarningLiveUpdateChartComponent implements AfterViewInit, OnDestroy
   option: any;
   echartsInstance;
 
-  constructor(private theme: NbThemeService,
-              private layoutService: LayoutService) {
+  private theme = inject(NbThemeService);
+  private layoutService = inject(LayoutService);
+
+  constructor() {
+
     this.layoutService.onSafeChangeLayoutSize()
       .pipe(
         takeWhile(() => this.alive),

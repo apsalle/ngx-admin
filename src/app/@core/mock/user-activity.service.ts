@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import { of as observableOf,  Observable } from 'rxjs';
 import { PeriodsService } from './periods.service';
 import { UserActive, UserActivityData } from '../data/user-activity';
@@ -18,7 +18,10 @@ export class UserActivityService extends UserActivityData {
 
   data = {};
 
-  constructor(private periods: PeriodsService) {
+  private periods = inject(PeriodsService);
+
+  constructor() {
+
     super();
     this.data = {
       week: this.getDataWeek(),

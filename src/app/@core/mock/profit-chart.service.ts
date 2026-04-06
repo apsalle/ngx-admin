@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import { PeriodsService } from './periods.service';
 import { ProfitChart, ProfitChartData } from '../data/profit-chart';
 
@@ -17,7 +17,10 @@ export class ProfitChartService extends ProfitChartData {
 
   private data = { };
 
-  constructor(private period: PeriodsService) {
+  private period = inject(PeriodsService);
+
+  constructor() {
+
     super();
     this.data = {
       week: this.getDataForWeekPeriod(),

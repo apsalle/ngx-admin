@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {
   NbComponentStatus,
   NbGlobalLogicalPosition,
@@ -15,7 +15,7 @@ import {
   templateUrl: './toastr.component.html',
 })
 export class ToastrComponent {
-  constructor(private toastrService: NbToastrService) {}
+  private toastrService = inject(NbToastrService);
 
   config: NbToastrConfig;
 

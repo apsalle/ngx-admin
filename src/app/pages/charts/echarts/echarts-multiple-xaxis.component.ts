@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import {Component, AfterViewInit, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -12,8 +12,7 @@ export class EchartsMultipleXaxisComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
 
-  constructor(private theme: NbThemeService) {
-  }
+  private theme = inject(NbThemeService);
 
   ngAfterViewInit() {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {

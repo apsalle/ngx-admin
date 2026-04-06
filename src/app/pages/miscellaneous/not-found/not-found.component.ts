@@ -1,5 +1,5 @@
 import { NbMenuService } from '@nebular/theme';
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 
 @Component({
   standalone: false,
@@ -9,8 +9,7 @@ import { Component } from '@angular/core';
 })
 export class NotFoundComponent {
 
-  constructor(private menuService: NbMenuService) {
-  }
+  private menuService = inject(NbMenuService);
 
   goToHome() {
     this.menuService.navigateHome();

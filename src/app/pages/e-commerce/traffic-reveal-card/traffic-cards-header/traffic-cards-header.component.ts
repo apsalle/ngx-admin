@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, Output, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 
@@ -18,7 +18,10 @@ export class TrafficCardsHeaderComponent implements OnDestroy {
   types: string[] = ['week', 'month', 'year'];
   currentTheme: string;
 
-  constructor(private themeService: NbThemeService) {
+  private themeService = inject(NbThemeService);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
@@ -9,7 +9,7 @@ import { NbDialogRef } from '@nebular/theme';
 })
 export class DialogNamePromptComponent {
 
-  constructor(protected ref: NbDialogRef<DialogNamePromptComponent>) {}
+  protected ref = inject<NbDialogRef<DialogNamePromptComponent>>(NbDialogRef);
 
   cancel() {
     this.ref.close();

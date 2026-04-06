@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, OnDestroy, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, HostBinding, OnDestroy, OnInit, Output, inject} from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
 import { NbThemeService } from '@nebular/theme';
 import { map, takeUntil } from 'rxjs/operators';
@@ -72,11 +72,12 @@ export class RoomSelectorComponent implements OnInit, OnDestroy {
     return this.hideGrid ? 'none' : null;
   }
 
-  constructor(
-    private location: Location,
-    private locationStrategy: LocationStrategy,
-    private themeService: NbThemeService,
-  ) {
+  private location = inject(Location);
+  private locationStrategy = inject(LocationStrategy);
+  private themeService = inject(NbThemeService);
+
+  constructor() {
+
     this.selectRoom('2');
   }
 

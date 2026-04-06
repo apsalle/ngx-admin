@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { Temperature, TemperatureHumidityData } from '../../../@core/data/temperature-humidity';
 import { takeWhile } from 'rxjs/operators';
@@ -27,8 +27,11 @@ export class TemperatureComponent implements OnDestroy {
   theme: any;
   themeSubscription: any;
 
-  constructor(private themeService: NbThemeService,
-              private temperatureHumidityService: TemperatureHumidityData) {
+  private themeService = inject(NbThemeService);
+  private temperatureHumidityService = inject(TemperatureHumidityData);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(config => {

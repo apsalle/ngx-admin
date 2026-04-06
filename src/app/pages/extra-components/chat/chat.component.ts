@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 
 import { ChatService } from './chat.service';
 
@@ -13,7 +13,10 @@ export class ChatComponent {
 
   messages: any[];
 
-  constructor(protected chatService: ChatService) {
+  protected chatService = inject(ChatService);
+
+  constructor() {
+
     this.messages = this.chatService.loadMessages();
   }
 

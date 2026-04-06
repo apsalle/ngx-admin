@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { combineLatest } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
@@ -29,8 +29,11 @@ export class BubbleMapComponent implements OnDestroy {
 
   private alive = true;
 
-  constructor(private theme: NbThemeService,
-              private http: HttpClient) {
+  private theme = inject(NbThemeService);
+  private http = inject(HttpClient);
+
+  constructor() {
+
 
     combineLatest([
       this.http.get('assets/map/world.json'),

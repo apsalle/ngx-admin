@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, inject} from '@angular/core';
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 
 interface TreeNode<T> {
@@ -30,7 +30,10 @@ export class TreeGridComponent {
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+  private dataSourceBuilder = inject<NbTreeGridDataSourceBuilder<FSEntry>>(NbTreeGridDataSourceBuilder);
+
+  constructor() {
+
     this.dataSource = this.dataSourceBuilder.create(this.data);
   }
 
@@ -83,12 +86,13 @@ export class TreeGridComponent {
   standalone: false,
   selector: 'ngx-fs-icon',
   template: `
-    <nb-tree-grid-row-toggle [expanded]="expanded" *ngIf="isDir(); else fileIcon">
-    </nb-tree-grid-row-toggle>
-    <ng-template #fileIcon>
+    @if (isDir()) {
+      <nb-tree-grid-row-toggle [expanded]="expanded">
+      </nb-tree-grid-row-toggle>
+    } @else {
       <nb-icon icon="file-text-outline"></nb-icon>
-    </ng-template>
-  `,
+    }
+    `,
 })
 export class FsIconComponent {
   @Input() kind: string;

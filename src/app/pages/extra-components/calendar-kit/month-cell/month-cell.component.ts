@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import {Component, EventEmitter, inject} from '@angular/core';
 import {
   NbCalendarCell,
   NbCalendarDayPickerComponent,
@@ -18,7 +18,10 @@ export class CalendarKitMonthCellComponent extends NbCalendarDayPickerComponent<
   select: EventEmitter<Date> = new EventEmitter();
   selectedValue: Date;
 
-  constructor(private dateService: NbDateService<Date>, monthModel: NbCalendarMonthModelService<Date>) {
+  private dateService = inject<NbDateService<Date>>(NbDateService);
+
+  constructor() {
+    const monthModel = inject<NbCalendarMonthModelService<Date>>(NbCalendarMonthModelService);
     super(monthModel);
   }
 

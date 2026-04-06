@@ -1,5 +1,5 @@
 import { of as observableOf,  Observable } from 'rxjs';
-import { Injectable } from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import { OrdersChart, OrdersChartData } from '../data/orders-chart';
 import { OrderProfitChartSummary, OrdersProfitChartData } from '../data/orders-profit-chart';
 import { ProfitChart, ProfitChartData } from '../data/profit-chart';
@@ -26,8 +26,11 @@ export class OrdersProfitChartService extends OrdersProfitChartData {
     },
   ];
 
-  constructor(private ordersChartService: OrdersChartData,
-              private profitChartService: ProfitChartData) {
+  private ordersChartService = inject(OrdersChartData);
+  private profitChartService = inject(ProfitChartData);
+
+  constructor() {
+
     super();
   }
 

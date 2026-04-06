@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnDestroy } from '@angular/core';
+import {Component, HostBinding, Input, OnDestroy, inject} from '@angular/core';
 import { PlayerService, Track } from '../../../../@core/utils/player.service';
 
 @Component({
@@ -16,7 +16,10 @@ export class PlayerComponent implements OnDestroy {
   player: HTMLAudioElement;
   shuffle: boolean;
 
-  constructor(private playerService: PlayerService) {
+  private playerService = inject(PlayerService);
+
+  constructor() {
+
     this.track = this.playerService.random();
     this.createPlayer();
   }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, inject} from '@angular/core';
 import { of as observableOf, Observable } from 'rxjs';
 import { PeriodsService } from './periods.service';
 import { OutlineData, VisitorsAnalyticsData } from '../data/visitors-analytics';
@@ -6,7 +6,10 @@ import { OutlineData, VisitorsAnalyticsData } from '../data/visitors-analytics';
 @Injectable()
 export class VisitorsAnalyticsService extends VisitorsAnalyticsData {
 
-  constructor(private periodService: PeriodsService) {
+  private periodService = inject(PeriodsService);
+
+  constructor() {
+
     super();
   }
 

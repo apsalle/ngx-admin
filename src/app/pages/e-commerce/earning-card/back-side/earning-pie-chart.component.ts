@@ -1,5 +1,5 @@
 import * as echarts from 'echarts';
-import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { delay, takeWhile } from 'rxjs/operators';
 
@@ -27,8 +27,7 @@ export class EarningPieChartComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   echartsInstance;
 
-  constructor(private theme: NbThemeService) {
-  }
+  private theme = inject(NbThemeService);
 
   onChartInit(ec) {
     this.echartsInstance = ec;
