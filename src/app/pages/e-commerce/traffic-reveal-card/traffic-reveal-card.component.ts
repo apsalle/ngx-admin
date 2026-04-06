@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { TrafficList, TrafficListData } from '../../../@core/data/traffic-list';
 import { TrafficBarData, TrafficBar } from '../../../@core/data/traffic-bar';
 import { takeWhile } from 'rxjs/operators';
@@ -14,12 +14,15 @@ export class TrafficRevealCardComponent implements OnDestroy {
   private alive = true;
 
   trafficBarData: TrafficBar;
-  trafficListData: TrafficList;
+  trafficListData: TrafficList[];
   revealed = false;
   period: string = 'week';
 
-  constructor(private trafficListService: TrafficListData,
-              private trafficBarService: TrafficBarData) {
+  private trafficListService = inject(TrafficListData);
+  private trafficBarService = inject(TrafficBarData);
+
+  constructor() {
+
     this.getTrafficFrontCardData(this.period);
     this.getTrafficBackCardData(this.period);
   }

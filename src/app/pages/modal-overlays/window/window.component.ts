@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import {Component, TemplateRef, ViewChild, inject} from '@angular/core';
 import { NbWindowService } from '@nebular/theme';
 import { WindowFormComponent } from './window-form/window-form.component';
 
@@ -13,7 +13,7 @@ export class WindowComponent {
   @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
   @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
 
-  constructor(private windowService: NbWindowService) {}
+  private windowService = inject(NbWindowService);
 
   openWindow(contentTemplate) {
     this.windowService.open(

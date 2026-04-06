@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, inject} from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -13,8 +13,7 @@ export class StepperComponent implements OnInit {
   secondForm: UntypedFormGroup;
   thirdForm: UntypedFormGroup;
 
-  constructor(private fb: UntypedFormBuilder) {
-  }
+  private fb = inject(UntypedFormBuilder);
 
   ngOnInit() {
     this.firstForm = this.fb.group({

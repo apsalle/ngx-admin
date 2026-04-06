@@ -8,6 +8,7 @@ import {
   EventEmitter,
   AfterViewInit,
   OnChanges,
+  inject,
 } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
 
@@ -88,10 +89,11 @@ export class TemperatureDraggerComponent implements AfterViewInit, OnChanges {
   private isMouseDown = false;
   private init = false;
 
-  constructor(
-    private location: Location,
-    private locationStrategy: LocationStrategy,
-  ) {
+  private location = inject(Location);
+  private locationStrategy = inject(LocationStrategy);
+
+  constructor() {
+
     this.oldValue = this.value;
   }
 

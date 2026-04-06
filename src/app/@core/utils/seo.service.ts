@@ -1,4 +1,4 @@
-import { Injectable, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
+import { Injectable, PLATFORM_ID, OnDestroy, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 import { NB_DOCUMENT } from '@nebular/theme';
@@ -13,11 +13,11 @@ export class SeoService implements OnDestroy {
   private readonly isBrowser: boolean;
   private linkCanonical: HTMLLinkElement;
 
-  constructor(
-    private router: Router,
-    @Inject(NB_DOCUMENT) document,
-    @Inject(PLATFORM_ID) platformId,
-  ) {
+  private router = inject(Router);
+
+  constructor() {
+    const document = inject(NB_DOCUMENT);
+    const platformId = inject(PLATFORM_ID);
     this.isBrowser = isPlatformBrowser(platformId);
     this.dom = document;
 

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { StatsBarData } from '../../../../@core/data/stats-bar';
 import { takeWhile } from 'rxjs/operators';
 
@@ -14,7 +14,10 @@ export class StatsCardBackComponent implements OnDestroy {
 
   chartData: number[];
 
-  constructor(private statsBarData: StatsBarData) {
+  private statsBarData = inject(StatsBarData);
+
+  constructor() {
+
     this.statsBarData.getStatsBarData()
       .pipe(takeWhile(() => this.alive))
       .subscribe((data) => {

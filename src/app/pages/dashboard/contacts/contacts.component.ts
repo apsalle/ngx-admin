@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
@@ -17,7 +17,10 @@ export class ContactsComponent implements OnDestroy {
   contacts: any[];
   recent: any[];
 
-  constructor(private userService: UserData) {
+  private userService = inject(UserData);
+
+  constructor() {
+
     forkJoin(
       this.userService.getContacts(),
       this.userService.getRecentUsers(),

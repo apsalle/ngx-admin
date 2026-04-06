@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { interval , Subscription } from 'rxjs';
 import { switchMap, takeWhile } from 'rxjs/operators';
@@ -21,8 +21,11 @@ export class EarningCardFrontComponent implements OnDestroy, OnInit {
   earningLiveUpdateCardData: LiveUpdateChart;
   liveUpdateChartData: { value: [string, number] }[];
 
-  constructor(private themeService: NbThemeService,
-              private earningService: EarningData) {
+  private themeService = inject(NbThemeService);
+  private earningService = inject(EarningData);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {

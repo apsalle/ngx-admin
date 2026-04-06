@@ -1,6 +1,6 @@
 import * as echarts from 'echarts';
 import { delay } from 'rxjs/operators';
-import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -39,8 +39,7 @@ export class SolarComponent implements AfterViewInit, OnDestroy {
   option: any = {};
   themeSubscription: any;
 
-  constructor(private theme: NbThemeService) {
-  }
+  private theme = inject(NbThemeService);
 
   ngAfterViewInit() {
     this.themeSubscription = this.theme.getJsTheme().pipe(delay(1)).subscribe(config => {

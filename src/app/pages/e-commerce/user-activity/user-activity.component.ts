@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 
@@ -19,8 +19,11 @@ export class ECommerceUserActivityComponent implements OnDestroy {
   types = ['week', 'month', 'year'];
   currentTheme: string;
 
-  constructor(private themeService: NbThemeService,
-              private userActivityService: UserActivityData) {
+  private themeService = inject(NbThemeService);
+  private userActivityService = inject(UserActivityData);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {

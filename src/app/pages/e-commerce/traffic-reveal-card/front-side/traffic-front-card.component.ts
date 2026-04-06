@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import {Component, Input, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 
@@ -14,11 +14,14 @@ export class TrafficFrontCardComponent implements OnDestroy {
 
   private alive = true;
 
-  @Input() frontCardData: TrafficList;
+  @Input() frontCardData: TrafficList[];
 
   currentTheme: string;
 
-  constructor(private themeService: NbThemeService) {
+  private themeService = inject(NbThemeService);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {

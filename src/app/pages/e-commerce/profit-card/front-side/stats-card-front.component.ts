@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { ProfitBarAnimationChartData } from '../../../../@core/data/profit-bar-animation-chart';
 import { takeWhile } from 'rxjs/operators';
 
@@ -14,7 +14,10 @@ export class StatsCardFrontComponent {
 
   linesData: { firstLine: number[]; secondLine: number[] };
 
-  constructor(private profitBarAnimationChartService: ProfitBarAnimationChartData) {
+  private profitBarAnimationChartService = inject(ProfitBarAnimationChartData);
+
+  constructor() {
+
     this.profitBarAnimationChartService.getChartData()
       .pipe(takeWhile(() => this.alive))
       .subscribe((linesData) => {

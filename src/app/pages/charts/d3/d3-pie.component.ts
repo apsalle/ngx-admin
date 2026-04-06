@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 @Component({
@@ -24,7 +24,10 @@ export class D3PieComponent implements OnDestroy {
   colorScheme: any;
   themeSubscription: any;
 
-  constructor(private theme: NbThemeService) {
+  private theme = inject(NbThemeService);
+
+  constructor() {
+
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
       const colors: any = config.variables;
       this.colorScheme = {

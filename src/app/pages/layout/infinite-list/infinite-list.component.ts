@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { NewsService } from '../news.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class InfiniteListComponent {
   };
   pageSize = 10;
 
-  constructor(private newsService: NewsService) {}
+  private newsService = inject(NewsService);
 
   loadNext(cardData) {
     if (cardData.loading) { return; }

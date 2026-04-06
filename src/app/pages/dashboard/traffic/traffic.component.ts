@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators';
 
@@ -12,15 +12,17 @@ import { TrafficChartData } from '../../../@core/data/traffic-chart';
     <nb-card size="tiny">
       <nb-card-header>
         <span>Traffic Consumption</span>
-
+    
         <nb-select [(selected)]="type">
-          <nb-option *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
+          @for (t of types; track t) {
+            <nb-option [value]="t">{{ t }}</nb-option>
+          }
         </nb-select>
       </nb-card-header>
-
+    
       <ngx-traffic-chart [points]="trafficChartPoints"></ngx-traffic-chart>
     </nb-card>
-  `,
+    `,
 })
 export class TrafficComponent implements OnDestroy {
 
@@ -31,8 +33,11 @@ export class TrafficComponent implements OnDestroy {
   types = ['week', 'month', 'year'];
   currentTheme: string;
 
-  constructor(private themeService: NbThemeService,
-              private trafficChartService: TrafficChartData) {
+  private themeService = inject(NbThemeService);
+  private trafficChartService = inject(TrafficChartData);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {

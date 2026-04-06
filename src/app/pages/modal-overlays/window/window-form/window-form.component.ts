@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { NbWindowRef } from '@nebular/theme';
 
 @Component({
@@ -15,7 +15,7 @@ import { NbWindowRef } from '@nebular/theme';
   styleUrls: ['window-form.component.scss'],
 })
 export class WindowFormComponent {
-  constructor(public windowRef: NbWindowRef) {}
+  public windowRef = inject(NbWindowRef);
 
   close() {
     this.windowRef.close();

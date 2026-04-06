@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, inject} from '@angular/core';
 import { NbDialogRef } from '@nebular/theme';
 
 @Component({
@@ -11,7 +11,7 @@ export class ShowcaseDialogComponent {
 
   @Input() title: string;
 
-  constructor(protected ref: NbDialogRef<ShowcaseDialogComponent>) {}
+  protected ref = inject<NbDialogRef<ShowcaseDialogComponent>>(NbDialogRef);
 
   dismiss() {
     this.ref.close();

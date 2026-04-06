@@ -1,5 +1,5 @@
 import * as echarts from 'echarts';
-import { AfterViewInit, Component, Input, OnChanges, OnDestroy } from '@angular/core';
+import {AfterViewInit, Component, Input, OnChanges, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { delay, takeWhile } from 'rxjs/operators';
 
@@ -35,8 +35,11 @@ export class OrdersChartComponent implements AfterViewInit, OnDestroy, OnChanges
     }
   }
 
-  constructor(private theme: NbThemeService,
-              private layoutService: LayoutService) {
+  private theme = inject(NbThemeService);
+  private layoutService = inject(LayoutService);
+
+  constructor() {
+
     this.layoutService.onSafeChangeLayoutSize()
       .pipe(
         takeWhile(() => this.alive),

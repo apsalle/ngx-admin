@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { LocalDataSource } from 'angular2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
@@ -56,7 +56,10 @@ export class SmartTableComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
+  private service = inject(SmartTableData);
+
+  constructor() {
+
     const data = this.service.getData();
     this.source.load(data);
   }

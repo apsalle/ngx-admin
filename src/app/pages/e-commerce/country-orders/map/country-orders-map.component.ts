@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, Output, inject} from '@angular/core';
 
 import * as L from 'leaflet';
 
@@ -40,8 +40,11 @@ export class CountryOrdersMapComponent implements OnDestroy {
     maxBoundsViscosity: 1.0,
   };
 
-  constructor(private ecMapService: CountryOrdersMapService,
-              private theme: NbThemeService) {
+  private ecMapService = inject(CountryOrdersMapService);
+  private theme = inject(NbThemeService);
+
+  constructor() {
+
 
     combineLatest([
       this.ecMapService.getCords(),

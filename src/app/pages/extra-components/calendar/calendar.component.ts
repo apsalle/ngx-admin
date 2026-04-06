@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { NbCalendarRange, NbDateService } from '@nebular/theme';
 import { DayCellComponent } from './day-cell/day-cell.component';
 
@@ -15,7 +15,10 @@ export class CalendarComponent {
   range: NbCalendarRange<Date>;
   dayCellComponent = DayCellComponent;
 
-  constructor(protected dateService: NbDateService<Date>) {
+  protected dateService = inject<NbDateService<Date>>(NbDateService);
+
+  constructor() {
+
     this.range = {
       start: this.dateService.addDay(this.monthStart, 3),
       end: this.dateService.addDay(this.monthEnd, -3),

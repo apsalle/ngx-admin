@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 import { Electricity, ElectricityChart, ElectricityData } from '../../../@core/data/electricity';
@@ -24,8 +24,11 @@ export class ElectricityComponent implements OnDestroy {
   currentTheme: string;
   themeSubscription: any;
 
-  constructor(private electricityService: ElectricityData,
-              private themeService: NbThemeService) {
+  private electricityService = inject(ElectricityData);
+  private themeService = inject(NbThemeService);
+
+  constructor() {
+
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
